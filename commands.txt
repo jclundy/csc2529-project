@@ -1,0 +1,8 @@
+# Commands
+
+# run yocto detector
+python detect.py --weights yolov7-e6e.pt --source /home/joseph/Documents/git/project/videos/foosball_videos/20221004_220424.mp4
+
+# download weights
+wget https://github.com/WongKinYiu/yolov7/releases/download/v0.1/yolov7-e6e.pt
+wget https://github.com/WongKinYiu/yolov7/releases/download/v0.1/yolov7-tiny.pt
