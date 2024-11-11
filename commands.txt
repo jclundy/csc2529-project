@@ -1,8 +1,16 @@
 # Commands
 
 # run yocto detector
-python detect.py --weights yolov7-e6e.pt --source /home/joseph/Documents/git/project/videos/foosball_videos/20221004_220424.mp4
+python detect.py --weights yolov7-e6e.pt --source /home/joseph/Documents/project/videos/foosball_videos/20221004_220424.mp4
 
 # download weights
 wget https://github.com/WongKinYiu/yolov7/releases/download/v0.1/yolov7-e6e.pt
 wget https://github.com/WongKinYiu/yolov7/releases/download/v0.1/yolov7-tiny.pt
+
+# training
+!python train.py --img-size 640 --cfg cfg/training/yolov7.yaml --hyp data/hyp.scratch.custom.yaml --batch 8 --epochs 100 --data data/road_sign.yaml --weights yolov7_training.pt --workers 24 --name yolo_road_det
+
+!python train.py --img-size 640 --cfg cfg/training/yolov7-tiny.yaml --hyp data/hyp.scratch.tiny.yaml --batch 8 --epochs 100 --data data/foosball_data.yaml --weights yolov7-tiny.pt --workers 24 --name yolo_foosball_det
+
+# run custom detector
+python detect.py --weights /home/joseph/Documents/git/yolov7/runs/train/yolo_foosball_det/weights/best.pt --source /home/joseph/Documents/project/videos/foosball_videos/20221005_212526.mp4
