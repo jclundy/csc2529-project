@@ -14,3 +14,12 @@ wget https://github.com/WongKinYiu/yolov7/releases/download/v0.1/yolov7-tiny.pt
 
 # run custom detector
 python detect.py --weights /home/joseph/Documents/git/yolov7/runs/train/yolo_foosball_det/weights/best.pt --source /home/joseph/Documents/project/videos/foosball_videos/20221005_212526.mp4
+
+# extracting images from video:
+
+#For your custom videos, you can extract their JPEG frames using ffmpeg (https://ffmpeg.org/) as follows:
+ffmpeg -i <your_video>.mp4 -q:v 2 -start_number 0 <output_dir>/'%05d.jpg'
+#where -q:v generates high-quality JPEG frames and -start_number 0 asks ffmpeg to start the JPEG file from 00000.jpg.
+
+
+#python train.py --img-size 640 --cfg cfg/training/yolov7-tiny.yaml --hyp data/hyp.scratch.tiny.foosball.yaml --batch 8 --epochs 100 --data data/foosball_data.yaml --weights yolov7-tiny.pt --workers 24 --name yolo_foosball_det_1
