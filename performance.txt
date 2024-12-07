@@ -1,0 +1,191 @@
+(yolov7) joseph@joseph-PC-ubuntu:~/Documents/git/yolov7$ python test.py --weights runs/train/yolo_foosball_det_1/weights/best.pt --img-size 640 --conf 0.001 --iou 0.64 --data  data/foosball_data.yaml --task test --name "yolo_foosball_test"
+Namespace(weights=['runs/train/yolo_foosball_det_1/weights/best.pt'], data='data/foosball_data.yaml', batch_size=32, img_size=640, conf_thres=0.001, iou_thres=0.64, task='test', device='', single_cls=False, augment=False, verbose=False, save_txt=False, save_hybrid=False, save_conf=False, save_json=False, project='runs/test', name='yolo_foosball_test', exist_ok=False, no_trace=False, v5_metric=False)
+YOLOR 🚀 v0.1-129-g0a89b2d torch 2.5.1+cu124 CUDA:0 (NVIDIA GeForce RTX 3060, 11927.0MB)
+
+/home/joseph/Documents/git/yolov7/models/experimental.py:252: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  ckpt = torch.load(w, map_location=map_location)  # load
+Fusing layers... 
+IDetect.fuse
+/home/joseph/anaconda3/envs/yolov7/lib/python3.12/site-packages/torch/functional.py:534: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at ../aten/src/ATen/native/TensorShape.cpp:3595.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+Model Summary: 208 layers, 6010302 parameters, 0 gradients, 13.0 GFLOPS
+ Convert model to Traced-model... 
+ traced_script_module saved! 
+ model is traced! 
+
+test: Scanning 'Foosball_Dataset/labels/test' images and labels... 51 found, 0 missing, 0 empty, 0 corrupted: 100%|█| 51/51 [00:
+test: New cache created: Foosball_Dataset/labels/test.cache
+               Class      Images      Labels           P           R      mAP@.5  mAP@.5:.95: 100%|█| 2/2 [00:02<00:00,  1.21s/i
+                 all          51         663       0.999       0.989       0.997        0.83
+                ball          51          51           1        0.98       0.995       0.788
+             foosman          51         612       0.998       0.998       0.998       0.873
+Speed: 1.8/2.6/4.4 ms inference/NMS/total per 640x640 image at batch-size 32
+Results saved to runs/test/yolo_foosball_test
+(yolov7) joseph@joseph-PC-ubuntu:~/Documents/git/yolov7$ python test.py --weights runs/train/yolo_foosball_det_1/weights/best.pt --img-size 640 --conf 0.001 --iou 0.64 --data  data/foosball_data.yaml --task val --name "yolo_foosball_test"
+Namespace(weights=['runs/train/yolo_foosball_det_1/weights/best.pt'], data='data/foosball_data.yaml', batch_size=32, img_size=640, conf_thres=0.001, iou_thres=0.64, task='val', device='', single_cls=False, augment=False, verbose=False, save_txt=False, save_hybrid=False, save_conf=False, save_json=False, project='runs/test', name='yolo_foosball_test', exist_ok=False, no_trace=False, v5_metric=False)
+YOLOR 🚀 v0.1-129-g0a89b2d torch 2.5.1+cu124 CUDA:0 (NVIDIA GeForce RTX 3060, 11927.0MB)
+
+/home/joseph/Documents/git/yolov7/models/experimental.py:252: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  ckpt = torch.load(w, map_location=map_location)  # load
+Fusing layers... 
+IDetect.fuse
+/home/joseph/anaconda3/envs/yolov7/lib/python3.12/site-packages/torch/functional.py:534: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at ../aten/src/ATen/native/TensorShape.cpp:3595.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+Model Summary: 208 layers, 6010302 parameters, 0 gradients, 13.0 GFLOPS
+ Convert model to Traced-model... 
+ traced_script_module saved! 
+ model is traced! 
+
+val: Scanning 'Foosball_Dataset/labels/val' images and labels... 50 found, 0 missing, 0 empty, 0 corrupted: 100%|█| 50/50 [00:00
+val: New cache created: Foosball_Dataset/labels/val.cache
+               Class      Images      Labels           P           R      mAP@.5  mAP@.5:.95: 100%|█| 2/2 [00:02<00:00,  1.16s/i
+                 all          50         650       0.988       0.968       0.984       0.802
+                ball          50          50       0.979        0.94        0.97       0.735
+             foosman          50         600       0.997       0.997       0.997       0.869
+Speed: 2.8/3.2/6.0 ms inference/NMS/total per 640x640 image at batch-size 32
+Results saved to runs/test/yolo_foosball_test2
+(yolov7) joseph@joseph-PC-ubuntu:~/Documents/git/yolov7$ python test.py --weights runs/train/yolo_foosball_det_1/weights/best.pt --img-size 640 --conf 0.001 --iou 0.64 --data  data/foosball_data.yaml --task train --name "yolo_foosball_test"
+Namespace(weights=['runs/train/yolo_foosball_det_1/weights/best.pt'], data='data/foosball_data.yaml', batch_size=32, img_size=640, conf_thres=0.001, iou_thres=0.64, task='train', device='', single_cls=False, augment=False, verbose=False, save_txt=False, save_hybrid=False, save_conf=False, save_json=False, project='runs/test', name='yolo_foosball_test', exist_ok=False, no_trace=False, v5_metric=False)
+YOLOR 🚀 v0.1-129-g0a89b2d torch 2.5.1+cu124 CUDA:0 (NVIDIA GeForce RTX 3060, 11927.0MB)
+
+/home/joseph/Documents/git/yolov7/models/experimental.py:252: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  ckpt = torch.load(w, map_location=map_location)  # load
+Fusing layers... 
+IDetect.fuse
+/home/joseph/anaconda3/envs/yolov7/lib/python3.12/site-packages/torch/functional.py:534: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at ../aten/src/ATen/native/TensorShape.cpp:3595.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+Model Summary: 208 layers, 6010302 parameters, 0 gradients, 13.0 GFLOPS
+ Convert model to Traced-model... 
+ traced_script_module saved! 
+ model is traced! 
+
+train: Scanning 'Foosball_Dataset/labels/train' images and labels... 400 found, 0 missing, 0 empty, 0 corrupted: 100%|█| 400/400
+train: New cache created: Foosball_Dataset/labels/train.cache
+               Class      Images      Labels           P           R      mAP@.5  mAP@.5:.95: 100%|█| 13/13 [00:04<00:00,  2.88i
+                 all         400        5194       0.996       0.991       0.996       0.802
+                ball         400         394       0.995       0.985       0.993       0.737
+             foosman         400        4800       0.998       0.998       0.998       0.868
+Speed: 1.4/1.0/2.4 ms inference/NMS/total per 640x640 image at batch-size 32
+Results saved to runs/test/yolo_foosball_test3
+
+===========================================================================================
+ROTATION DATA SET
+------------------------------------------------------------------------------------------
+(3.3ms) Inference, (1.4ms) NMS
+
+test: Scanning 'Foosball_test_rotation_images/test/labels' images and labels... 46 found, 0 missing, 0 empty, 0 corrupted: 100%|█| 46/46 [00:00<00:00, 3338.89
+test: New cache created: Foosball_test_rotation_images/test/labels.cache
+               Class      Images      Labels           P           R      mAP@.5  mAP@.5:.95: 100%|█████████████████████████████| 2/2 [00:02<00:00,  1.26s/it]
+                 all          46         602       0.976       0.929       0.969       0.457
+                ball          46          46       0.979           1       0.995       0.432
+             foosman          46         556       0.973       0.858       0.943       0.483
+Speed: 3.2/3.2/6.4 ms inference/NMS/total per 640x640 image at batch-size 32
+Results saved to runs/test/yolo_foosball_rotation_dataset_test5
+
+===========================================================================================
+WEBCAM DATA SET
+------------------------------------------------------------------------------------------
+(2.5ms) Inference, (0.6ms) NMS
+
+Test: Scanning 'Datasets/webcam_images/test/labels' images and labels... 23 found, 0 missing, 0 empty, 0 corrupted: 100%|███| 23/23 [00:00<00:00, 3597.31it/s]
+test: New cache created: Datasets/webcam_images/test/labels.cache
+               Class      Images      Labels           P           R      mAP@.5  mAP@.5:.95: 100%|█████████████████████████████| 1/1 [00:01<00:00,  1.42s/it]
+                 all          23         299       0.827       0.938       0.936       0.627
+                ball          23          23       0.655       0.957       0.879       0.604
+             foosman          23         276           1        0.92       0.993        0.65
+Speed: 4.7/7.4/12.1 ms inference/NMS/total per 640x640 image at batch-size 32
+Results saved to runs/test/yolo_webcam
+
+
+===========================================================================================
+GREEN DATA SET
+------------------------------------------------------------------------------------------
+(3.0ms) Inference, (0.7ms) NMS
+
+test: Scanning 'Datasets/green/test/labels' images and labels... 10 found, 0 missing, 0 empty, 0 corrupted: 100%|███████████| 10/10 [00:00<00:00, 2414.82it/s]
+test: New cache created: Datasets/green/test/labels.cache
+               Class      Images      Labels           P           R      mAP@.5  mAP@.5:.95: 100%|█████████████████████████████| 1/1 [00:00<00:00,  1.02it/s]
+                 all          10         130       0.937       0.708       0.765       0.462
+                ball          10          10       0.998         0.5       0.632       0.359
+             foosman          10         120       0.877       0.917       0.898       0.564
+Speed: 7.3/8.4/15.7 ms inference/NMS/total per 640x640 image at batch-size 32
+Results saved to runs/test/yolo_green2
+
+===========================================================================================
+PINK DATA SET
+------------------------------------------------------------------------------------------
+(3.0ms) Inference, (0.7ms) NMS
+
+test: Scanning 'Datasets/pink/test/labels' images and labels... 10 found, 0 missing, 0 empty, 0 corrupted: 100%|████████████| 10/10 [00:00<00:00, 2434.44it/s]
+test: New cache created: Datasets/pink/test/labels.cache
+               Class      Images      Labels           P           R      mAP@.5  mAP@.5:.95: 100%|█████████████████████████████| 1/1 [00:00<00:00,  1.14it/s]
+                 all          10         130       0.975       0.979        0.97       0.651
+                ball          10          10       0.991           1       0.995       0.667
+             foosman          10         120       0.958       0.958       0.945       0.634
+
+===========================================================================================
+ORANGE DATA SET
+------------------------------------------------------------------------------------------
+(2.8ms) Inference, (0.7ms)
+
+test: Scanning 'Datasets/orange/test/labels' images and labels... 10 found, 0 missing, 0 empty, 0 corrupted: 100%|██████████| 10/10 [00:00<00:00, 2437.84it/s]
+test: New cache created: Datasets/orange/test/labels.cache
+               Class      Images      Labels           P           R      mAP@.5  mAP@.5:.95: 100%|█████████████████████████████| 1/1 [00:00<00:00,  1.16it/s]
+                 all          10         130       0.989       0.996       0.992       0.658
+                ball          10          10           1           1       0.995       0.845
+             foosman          10         120       0.977       0.992       0.988       0.472
+Speed: 8.0/8.6/16.6 ms inference/NMS/total per 640x640 image at batch-size 32
+Results saved to runs/test/yolo_orange
+
+===========================================================================================
+ORANGE_2 DATA SET
+------------------------------------------------------------------------------------------
+(3.0ms) Inference, (0.7ms) NMS
+
+test: Scanning 'Datasets/orange_2/test/labels' images and labels... 10 found, 0 missing, 0 empty, 0 corrupted: 100%|████████| 10/10 [00:00<00:00, 2236.72it/s]
+test: New cache created: Datasets/orange_2/test/labels.cache
+               Class      Images      Labels           P           R      mAP@.5  mAP@.5:.95: 100%|█████████████████████████████| 1/1 [00:00<00:00,  1.15it/s]
+                 all          10         130       0.805       0.692        0.74       0.425
+                ball          10          10       0.666         0.4         0.5       0.306
+             foosman          10         120       0.944       0.983       0.981       0.543
+Speed: 8.2/10.1/18.3 ms inference/NMS/total per 640x640 image at batch-size 32
+Results saved to runs/test/yolo_orange_light
+
+===========================================================================================
+BLUE DATA SET
+------------------------------------------------------------------------------------------
+(2.9ms) Inference, (0.7ms) NMS
+
+test: Scanning 'Datasets/blue/test/labels' images and labels... 10 found, 0 missing, 0 empty, 0 corrupted: 100%|████████████| 10/10 [00:00<00:00, 2411.91it/s]
+test: New cache created: Datasets/blue/test/labels.cache
+               Class      Images      Labels           P           R      mAP@.5  mAP@.5:.95: 100%|█████████████████████████████| 1/1 [00:00<00:00,  1.17it/s]
+                 all          10         130       0.827       0.829       0.854       0.435
+                ball          10          10       0.778         0.7       0.757       0.323
+             foosman          10         120       0.876       0.958       0.951       0.548
+Speed: 8.4/10.2/18.6 ms inference/NMS/total per 640x640 image at batch-size 32
+Results saved to runs/test/yolo_blue
+
+===========================================================================================
+WHITE DATA SET
+------------------------------------------------------------------------------------------
+(3.0ms) Inference, (0.7ms)
+test: Scanning 'Datasets/white/test/labels' images and labels... 10 found, 0 missing, 0 empty, 0 corrupted: 100%|██████████████████████████| 10/10 [00:00<00:00, 2268.29it/s]
+test: New cache created: Datasets/white/test/labels.cache
+               Class      Images      Labels           P           R      mAP@.5  mAP@.5:.95: 100%|████████████████████████████████████████████| 1/1 [00:00<00:00,  1.21it/s]
+                 all          10         130       0.461       0.487       0.499       0.288
+                ball          10          10           0           0      0.0371      0.0217
+             foosman          10         120       0.921       0.975        0.96       0.554
+Speed: 4.3/10.8/15.0 ms inference/NMS/total per 640x640 image at batch-size 32
+Results saved to runs/test/yolo_white2
+
+===========================================================================================
+ALL COLORS SET
+------------------------------------------------------------------------------------------
+test: Scanning 'Datasets/all_ball_colors/test/labels' images and labels... 60 found, 0 missing, 0 empty, 0 corrupted: 100%|████████████████| 60/60 [00:00<00:00, 4584.77it/s]
+test: New cache created: Datasets/all_ball_colors/test/labels.cache
+               Class      Images      Labels           P           R      mAP@.5  mAP@.5:.95: 100%|████████████████████████████████████████████| 2/2 [00:02<00:00,  1.18s/it]
+                 all          60         780       0.802       0.782       0.787       0.466
+                ball          60          60       0.692         0.6       0.623       0.394
+             foosman          60         720       0.912       0.964       0.951       0.539
+Speed: 1.9/2.7/4.6 ms inference/NMS/total per 640x640 image at batch-size 32
+Results saved to runs/test/yolo_all_colors

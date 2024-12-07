@@ -23,3 +23,6 @@ ffmpeg -i <your_video>.mp4 -q:v 2 -start_number 0 <output_dir>/'%05d.jpg'
 
 
 #python train.py --img-size 640 --cfg cfg/training/yolov7-tiny.yaml --hyp data/hyp.scratch.tiny.foosball.yaml --batch 8 --epochs 100 --data data/foosball_data.yaml --weights yolov7-tiny.pt --workers 24 --name yolo_foosball_det_1
+
+# run updated custom detector
+python detect.py --weights /home/joseph/Documents/git/yolov7/runs/train/yolo_foosball_det_1/weights/best.pt --source /home/joseph/Documents/project/videos/foosball_videos/20221113_121152.mp4

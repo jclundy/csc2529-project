@@ -1,0 +1,16 @@
+name: csc2529-project
+channels:
+  - defaults
+dependencies:
+  - python
+  - notebook
+  - numpy
+  - scipy
+  - pip
+  - tqdm
+  - matplotlib
+  - scikit-image
+  - pip:
+      - pypher
+      - opencv-python
+      - ipywidgets
