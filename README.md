@@ -1,5 +1,13 @@
 # CSC2529
 
+## Report and Poster
+### Project Poster:
+[Foosball Detection Poster Final.pdf](https://github.com/user-attachments/files/20376716/Foosball.Detection.Poster.Final.pdf)
+
+### Project Poster:
+[Foosball_Object_Detector_Report.pdf](https://github.com/user-attachments/files/20376718/Foosball_Object_Detector_Report.pdf)
+
+
 ## Testing other tracking algorithms
 The script `object_tracking.py` was used to test the following tracking algorithms from the legacy opencv2 tracker library: 
 - "csrt"
